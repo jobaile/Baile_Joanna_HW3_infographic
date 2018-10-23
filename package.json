@@ -1,0 +1,24 @@
+{
+  "name": "Baile_Joanna_HW3_infographic",
+  "version": "1.0.0",
+  "description": "Infographic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jobaile/Baile_Joanna_HW3_infographic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jobaile/Baile_Joanna_HW3_infographic/issues"
+  },
+  "homepage": "https://github.com/jobaile/Baile_Joanna_HW3_infographic#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2"
+  }
+}
