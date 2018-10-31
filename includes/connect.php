@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $password = "root"; //leave this blank for windows users
-$db = "db_cooperInfo";
+$db = "db_infographic";
 
 $conn = mysqli_connect($host, $user, $password, $db);
 
@@ -14,7 +14,7 @@ if (!$conn) {
 // echo "connected!";
 
 // go and get all data from the database
-//$myQuery = "SELECT * FROM mainmodel";
+//$myQuery = "SELECT * FROM tbl_mmiw";
 //$result = mysqli_query($conn, $myQuery);
 //$rows = array();
 
@@ -24,10 +24,10 @@ while($row = mysqli_fetch_assoc($result)) {
 }
 
 //get one item from the database
-if (isset($_GET["modelNo"])){
-    $car = $_GET["modelNo"];
+if (isset($_GET["provNo"])){
+    $province = $_GET["provNo"];
 
-    $myQuery = "SELECT * FROM mainmodel WHERE model = '$car'";
+    $myQuery = "SELECT * FROM tbl_mmiw WHERE province = '$province'";
     $result = mysqli_query($conn, $myQuery);
     $rows = array();
 
