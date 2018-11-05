@@ -1,4 +1,5 @@
 (() => {
+AOS.init(); //initializes AOS library
 
 //Line animation for title
     var letterTime = 1200;
@@ -38,7 +39,7 @@
 
 //Counting up to 4,232
     var count= 0;
-    var speed = 4000;
+    var speed = 200000;
     timer();
 
     function timer()
@@ -48,18 +49,29 @@
         {
             return;
         }
-    speed = speed / 4000; 
+    speed = speed / 100000; 
     setTimeout(timer, speed);
     }
 
+//Functions
+let circleStat1 = document.querySelector("#_x33_times_1_");
+
 //Waypoint
+    var waypoint = new Waypoint({
+        element: document.querySelector("#section1"),
+        handler: function(direction){
+            console.log("scrolled to element!", this.element);
+        },
+        offset: 200
+    });
+
     var waypoint = new Waypoint({
         element: document.querySelector("#girl-stats"),
         handler: function(direction){
             console.log("scrolled to element!", this.element);
-            runAnimation();
+            circle1grow();
         },
-        offset: 20
+        offset: 200
     });
 
     var waypoint = new Waypoint({
@@ -77,13 +89,20 @@
         },
         offset: 200
     });
-    
+
+//Gsap codes
+
+function circle1grow(){
+    TweenMax.to(circleStat1, 1.5, {scale: 1.1, transformOrigin:"20% 20%", ease:Back.easeOut});
+}
+
 
 //Fetching data for Rankin + Canada map
-    const prov = document.querySelectorAll(".data-ref");
     const rankinIn = document.querySelector("#rankin");
+    const prov = document.querySelectorAll(".data-ref");
 
-    function getProvData() {
+    prov.forEach(prov => prov.addEventListener("mouseover", function getProvData(){
+        console.log("from getProvData!");
         let targetURL = `./includes/config.php?provNo=${this.id}`; 
         fetch(targetURL) 
         .then(res => res.json()) 
@@ -94,17 +113,14 @@
         .catch(function(error) {
             console.log(error);
         }); 
-    }
-
-    function showProvData(data){
-        //debugger;
-        const { province, number, info } = data;
-        document.querySelector('.provName').textContent = `Province/Territory: ${province}`;
-        document.querySelector('.numInfo').textContent = `Number: ${number} missing or murdered`;
-        document.querySelector('.provInfo').textContent = `Population of Indigenous peoples: ${info}`;
-    }
-
-    prov.forEach(prov => prov.addEventListener("click", getProvData));
+        function showProvData(data){
+            //debugger;
+            const { province, number, info } = data;
+            document.querySelector('.provName').textContent = `Province/Territory: ${province}`;
+            document.querySelector('.numInfo').textContent = `Number: ${number} missing or murdered`;
+            document.querySelector('.provInfo').textContent = `Population of Indigenous peoples: ${info}`;
+        }
+    }));
     
     rankinIn.addEventListener("click", function getRankinData() {
         console.log("rankin");
