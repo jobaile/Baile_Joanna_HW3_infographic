@@ -28,8 +28,8 @@
     "gulp-sass": "^4.0.2"
   },
   "dependencies": {
-    "animate.css": "^3.7.0",
     "animejs": "^2.2.0",
+    "aos": "^2.3.4",
     "waypoints": "^4.0.1"
   }
 }

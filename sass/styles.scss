@@ -3,7 +3,6 @@
 body {
     background-color: $black;
 }
-
 h1, h2, h3, h4, p {
     color: $white;
     font-family: $main-font;
@@ -12,6 +11,23 @@ h1, h2, h3, h4, p {
 p {
     font-weight: bold;
 }
+
+.svg-con {
+    width: 100%;
+    height: 100%;
+}
+
+//Header
+header {
+    background-color: $white;
+}
+
+header p {
+    color: $black; 
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
 hr {
     display: block;
     height: 2px;
@@ -21,12 +37,14 @@ hr {
     padding: 0;
 }
 
-.svg-con {
-    width: 100%;
-    height: 100%;
+#logo {
+    margin-bottom: 1.5em;
 }
 
 //Number
+#section1 {
+    margin: 1em;
+}
 #countdown {
     font-size: 11em;
     color: $white;
@@ -43,6 +61,20 @@ hr {
     cursor: pointer;
 }
 
+//Girl stats
+#section2 {
+    margin: 1em;
+}
+
+//Number stats
+#section3 {
+    margin: 1em;
+}
+
+//Map
+#section4 {
+    margin: 1em;
+}
 //Map CSS
 #BC:hover path {
     cursor: pointer;
@@ -116,8 +148,11 @@ hr {
 }
 
 #mmiwInfo h4 {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 
 //Footer 
+footer {
+    margin: 1em;
+}
