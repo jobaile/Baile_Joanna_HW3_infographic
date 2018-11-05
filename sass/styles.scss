@@ -27,9 +27,20 @@ hr {
 }
 
 //Number
-#value {
+#countdown {
     font-size: 11em;
     color: $white;
+}
+
+//Rankin
+
+#rankinInfo {
+    border: 2px solid $white;
+    height: 100%;
+}
+
+#rankin:hover circle {
+    cursor: pointer;
 }
 
 //Map CSS
@@ -98,10 +109,15 @@ hr {
     fill: $red;
 }
 
+#mmiwInfo {
+    margin-top: 2em;
+    border: 2px solid $white;
+    height: 100%;
+}
+
 #mmiwInfo h4 {
     font-size: 2em;
 }
 
 
-
-
+//Footer 
