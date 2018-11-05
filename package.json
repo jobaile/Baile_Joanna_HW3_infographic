@@ -26,5 +26,9 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {
+    "animate.css": "^3.7.0",
+    "waypoints": "^4.0.1"
   }
 }

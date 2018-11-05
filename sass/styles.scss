@@ -26,6 +26,12 @@ hr {
     height: 100%;
 }
 
+//Number
+#value {
+    font-size: 11em;
+    color: $white;
+}
+
 //Map CSS
 #BC:hover path {
     cursor: pointer;
