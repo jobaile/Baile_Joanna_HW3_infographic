@@ -16,7 +16,7 @@
                         startTime  += increament;
                         html.innerHTML = startTime ;
                         if(startTime  == endCount){
-                            clearInterval(timer);
+                            clearInterval(timmer);
                         }
                     },timer);
            }
@@ -24,32 +24,39 @@
 
         let doc = document.querySelector('#value');
         
-        let counter = new getCounter(500,4232,1,doc);
+        let counter = new getCounter(0,4232,1,doc);
+        //calling the function in the object
         counter.function();
+
+    //Waypoint
+
+    var waypoint = new Waypoint({
+        element: document.querySelector("#girl-stats"),
+        handler: function(direction){
+            console.log("scrolled to element!", this.element);
+        },
+        offset: 200
+    });
     
     const prov = document.querySelectorAll(".data-ref");
 
     function getData() {
-        // whenever we click on a thumbnail it passes the ID to the php query
         let targetURL = `./includes/connect.php?provNo=${this.id}`; 
 
-        fetch(targetURL) // go get the data and bring it back
-        .then(res => res.json()) // turn the result into a plan JS object
+        fetch(targetURL) 
+        .then(res => res.json()) 
         .then(data => {
-            console.log(data);// run a function to parse our data
-            showProvData(data[0]); // run a function to put the data on the page
+            console.log(data);
+            showProvData(data[0]); 
         }) 
         .catch(function(error) {
             console.log(error); //if anything broke, log it to the console
-        }); // let's see what we got
+        }); 
     }
 
     function showProvData(data){
         debugger;
-        // parse the DB info and put it where it needs to go
-        const { province, number, info } = data; // destructiong assignment => MDN JS destructuring
-
-        //grab the elements we need, and populate them withd ata
+        const { province, number, info } = data;
         document.querySelector('.provName').textContent = province;
         document.querySelector('.numInfo').textContent = `${number} missing or murdered`;
         document.querySelector('.provInfo').textContent = info;
