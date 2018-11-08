@@ -110,33 +110,33 @@ resOne.addEventListener("mouseout", function() {
 });
 
 resTwo.addEventListener("mouseover", function() {
-    leafGrow(this.querySelector('.svg-con'), ["leaf"]);
+    leafGrow(this.querySelector('.svg-con'), ["leafCir"]);
 });
 
 resTwo.addEventListener("mouseout", function() {
-    leafUnGrow(this.querySelector('.svg-con'), ["leaf"]);
+    leafUnGrow(this.querySelector('.svg-con'), ["leafCir"]);
 });
 
 resThree.addEventListener("mouseover", function() {
-    turtleGrow(this.querySelector('.svg-con'), ["turtle"]);
+    turtleGrow(this.querySelector('.svg-con'), ["turtleCir"]);
 });
 
 resThree.addEventListener("mouseout", function() {
-    turtleUnGrow(this.querySelector('.svg-con'), ["turtle"]);
+    turtleUnGrow(this.querySelector('.svg-con'), ["turtleCir"]);
 });
 
 //Fetching data for Rankin + Canada map
     const rankinIn = document.querySelector("#rankin");
     const prov = document.querySelectorAll(".data-ref");
-    const res = document.querySelectorAll('.data-res');
+    const reso = document.querySelectorAll('.data-res');
 
-    res.forEach(res => res.addEventListener("click", getResData));
+    reso.forEach(reso => reso.addEventListener("click", getResData));
 
    function getResData(){
        console.log("from getresdata");
        let targetURL = `./includes/config.php?resNo=${this.id}`; 
        fetch(targetURL) 
-       .then(res => res.json()) 
+       .then(prov => prov.json()) 
        .then(data => {
            console.log(data);
            showResData(data[0]);
