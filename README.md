@@ -1,7 +1,6 @@
 # Missing and Murdered Indigenous Women
 
-This one page inforgaphic website highlights a big issue in Canada - Missing and Murdered Indigenous Women (MMIW).
-The site provides some alarming statistics that are important to understanding this issue.
+This one page inforgaphic website highlights a big issue in Canada - Missing and Murdered Indigenous Women (MMIW). The site provides some statistics that are important to understanding the issue.
 
 ## Getting Started
 
@@ -13,7 +12,7 @@ Visit these sites to learn more about MMIW:
 
 ## Installing
 
-Works best on Google Chrome.
+Works best when opened with Google Chrome.
 MAMP or WAMP is also needed for this.
 To install, open your command line. Terminal for Mac or Command Prompt for Windows.
 
@@ -55,6 +54,10 @@ And you’re done!
 
 * [Bootstrap](https://getbootstrap.com/) - Framework
 * [SASS](https://sass-lang.com/) - CSS
+* [AOS](https://michalsnik.github.io/aos/) - Animate on scroll library
+* [Anime.js](http://animejs.com/) - Anime.js
+* [Greensock](https://greensock.com/) - Greensock
+* [Waypoint](http://imakewebthings.com/waypoints/) - Waypoints
 
 ## Authors
 
