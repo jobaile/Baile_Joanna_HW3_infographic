@@ -27,7 +27,7 @@ $ cd Desktop
 $ git clone https://github.com/jobaile/Baile_Joanna_HW3_infographic
 ```
 
-###Database Installation
+Database Installation
 ```
 # MAMP, WAMP, XAMPP
 $ Open application and turn on servers

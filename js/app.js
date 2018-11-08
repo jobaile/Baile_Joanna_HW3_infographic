@@ -1,30 +1,29 @@
 (() => {
-  //variables
-  var TopBtn = document.querySelector('#backToTop');
+  const country = document.querySelectorAll('.data-res');
   
-  //functions
-  //track scroll for back top
-  function trackScroll() {
-    console.log( 'top: '  + (window.pageYOffset || document.documentElement.scrollTop) + ' ' + 'left: ' + (window.pageXOffset || document.documentElement.scrollLeft) );
-    var scroll = window.pageYOffset;
-    if (scroll > 40) {
-      TopBtn.style.display = ("block");
-    }
-    if (scroll < 40) {
-      TopBtn.style.display = ("none");
-    }
-  }
+  function getData(){
+          console.log(this);
+          let targetURL = `includes/config.php?resNo=${this.id}`; //whenever we click on a thumbnail, pass its id to the php query
+          fetch (targetURL) // go get the data and bring it back! good doggy
+          .then(res => res.json()) //turn the result into a plain JS object
+          .then(data => {
+              console.log(data);
+              //run a function to parse our data
+              showCountryData(data[0]);
+          }) //lets see what we got
+          .catch(function(error) {
+              console.log(error); //if anything broke, log it to the console
+          });
 
-  //Back To Top function
-  function backToTop() {
-    if (window.pageYOffset > 0) {
-      window.scrollBy(0, -20);
-      setTimeout(backToTop, 0);
-    }
-  }
+          function showCountryData(data) {
+              const { title, info } = data;
+              document.querySelector('.resTitle').textContent = title;
+              document.querySelector('.resInfo').textContent = info;    
+          }
+      };
 
-//listeners 
-  window.addEventListener('scroll', trackScroll);
-  TopBtn.addEventListener('click', backToTop);
-	
-})();
+      country.forEach(country => country.addEventListener("click", getData));
+  
+      //getData(); //trigger the getData function
+  })();
+  
