@@ -2,7 +2,7 @@
 AOS.init(); //initializes AOS library
 
 //Line animation for title
-    var letterTime = 1200;
+    var letterTime = 800;
     var lineDrawing = anime({
         targets: "path",
         strokeDashoffset: [anime.setDashoffset, 1],
@@ -38,33 +38,28 @@ AOS.init(); //initializes AOS library
     });
 
 //Counting up to 4,232
-    var count= 0;
-    var speed = 200000;
-    timer();
+        var count= 0;
+        var speed = 200000;
+        timer();
 
-    function timer()
-    { count++;
-     document.querySelector("#countdown").innerHTML=count;
-        if (count >= 4232)
-        {
-            return;
+        function timer()
+        { count++;
+        document.querySelector("#countdown").innerHTML=count;
+            if (count >= 4232)
+            {
+                return;
+            }
+        speed = speed / 100000; 
+        setTimeout(timer, speed);
         }
-    speed = speed / 100000; 
-    setTimeout(timer, speed);
-    }
 
 //Functions
 let circleStat1 = document.querySelector("#_x33_times_1_");
+const resOne = document.querySelector("#resource1");
+const resTwo = document.querySelector("#resource2");
+const resThree = document.querySelector("#resource3");
 
 //Waypoint
-    var waypoint = new Waypoint({
-        element: document.querySelector("#section1"),
-        handler: function(direction){
-            console.log("scrolled to element!", this.element);
-        },
-        offset: 200
-    });
-
     var waypoint = new Waypoint({
         element: document.querySelector("#girl-stats"),
         handler: function(direction){
@@ -74,32 +69,88 @@ let circleStat1 = document.querySelector("#_x33_times_1_");
         offset: 200
     });
 
-    var waypoint = new Waypoint({
-        element: document.querySelector("#section3"),
-        handler: function(direction){
-            console.log("scrolled to element!", this.element);
-        },
-        offset: 200
-    });
-
-    var waypoint = new Waypoint({
-        element: document.querySelector("#section4"),
-        handler: function(direction){
-            console.log("scrolled to element!", this.element);
-        },
-        offset: 200
-    });
-
 //Gsap codes
-
 function circle1grow(){
     TweenMax.to(circleStat1, 1.5, {scale: 1.1, transformOrigin:"20% 20%", ease:Back.easeOut});
 }
 
+function phoneGrow(parent, elements){
+    //console.log(parent, elements);
+    TweenMax.to(resOne, 0.5, {scale: 1.2, transformOrigin: "20% 20%", ease:Back.easeOut});
+}
+
+function phoneUnGrow() {
+    TweenMax.to(resOne, 0.5, {scale: 1, transformOrigin: "20% 20%", ease:Back.easeOut});
+}
+
+function leafGrow(){
+    TweenMax.to(resTwo, 0.5, {scale: 1.2, transformOrigin: "20% 20%", ease:Back.easeOut});
+}
+
+function leafUnGrow() {
+    TweenMax.to(resTwo, 0.5, {scale: 1, transformOrigin: "20% 20%", ease:Back.easeOut});
+}
+
+function turtleGrow(){
+    TweenMax.to(resThree, 0.5, {scale: 1.2, transformOrigin: "20% 20%", ease:Back.easeOut});
+}
+
+function turtleUnGrow() {
+    TweenMax.to(resThree, 0.5, {scale: 1, transformOrigin: "20% 20%", ease:Back.easeOut});
+}
+
+
+//Event Listeners
+resOne.addEventListener("mouseover", function() {
+    phoneGrow(this.querySelector('.svg-con'), ["phoneCir"]);
+});
+
+resOne.addEventListener("mouseout", function() {
+    phoneUnGrow(this.querySelector('.svg-con'), ["phoneCir"]);
+});
+
+resTwo.addEventListener("mouseover", function() {
+    leafGrow(this.querySelector('.svg-con'), ["leaf"]);
+});
+
+resTwo.addEventListener("mouseout", function() {
+    leafUnGrow(this.querySelector('.svg-con'), ["leaf"]);
+});
+
+resThree.addEventListener("mouseover", function() {
+    turtleGrow(this.querySelector('.svg-con'), ["turtle"]);
+});
+
+resThree.addEventListener("mouseout", function() {
+    turtleUnGrow(this.querySelector('.svg-con'), ["turtle"]);
+});
 
 //Fetching data for Rankin + Canada map
     const rankinIn = document.querySelector("#rankin");
     const prov = document.querySelectorAll(".data-ref");
+    const res = document.querySelectorAll('.data-res');
+
+    res.forEach(res => res.addEventListener("click", getResData));
+
+   function getResData(){
+       console.log("from getresdata");
+       let targetURL = `./includes/config.php?resNo=${this.id}`; 
+       fetch(targetURL) 
+       .then(res => res.json()) 
+       .then(data => {
+           console.log(data);
+           showResData(data[0]);
+       }) 
+       .catch(function(error) {
+           console.log(error);
+       }); 
+       function showResData(data){
+           //debugger;
+           const { title, info } = data;
+           document.querySelector('.resTitle').textContent = title;
+           document.querySelector('.resInfo').textContent = info;        
+       }
+   };
 
     prov.forEach(prov => prov.addEventListener("mouseover", function getProvData(){
         console.log("from getProvData!");
@@ -115,10 +166,9 @@ function circle1grow(){
         }); 
         function showProvData(data){
             //debugger;
-            const { province, number, info } = data;
+            const { province, number } = data;
             document.querySelector('.provName').textContent = `Province/Territory: ${province}`;
-            document.querySelector('.numInfo').textContent = `Number: ${number} missing or murdered`;
-            document.querySelector('.provInfo').textContent = `Population of Indigenous peoples: ${info}`;
+            document.querySelector('.numInfo').textContent = `Number: ${number} missing or murdered`;        
         }
     }));
     
@@ -146,7 +196,4 @@ function circle1grow(){
 
     //getProvData(); // trigger the getData function
     //getRankinData();
-
-
-
 })();

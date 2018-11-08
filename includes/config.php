@@ -24,6 +24,17 @@ while($row = mysqli_fetch_assoc($result)) {
 }
 
 //get one item from the database
+if (isset($_GET["cityName"])){
+
+    $myQuery = "SELECT * FROM `tbl_rankin` WHERE `ID` = 1";
+    $result = mysqli_query($conn, $myQuery);
+    $rows = array();
+
+    while($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+}
+
 if (isset($_GET["provNo"])){
     $province = $_GET["provNo"];
 
@@ -36,9 +47,9 @@ if (isset($_GET["provNo"])){
     }
 }
 
-if (isset($_GET["cityName"])){
-
-    $myQuery = "SELECT * FROM `tbl_rankin` WHERE `ID` = 1";
+if (isset($_GET["resNo"])){
+    $res = $_GET["resNo"];
+    $myQuery = "SELECT * FROM tbl_resources WHERE resource = '$res'";
     $result = mysqli_query($conn, $myQuery);
     $rows = array();
 
@@ -46,6 +57,7 @@ if (isset($_GET["cityName"])){
         $rows[] = $row;
     }
 }
+
 
 echo json_encode($rows);
 ?>

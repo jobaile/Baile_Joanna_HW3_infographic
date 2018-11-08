@@ -3,13 +3,17 @@
 body {
     background-color: $black;
 }
-h1, h2, h3, h4, p {
+h1, h2, h3, h4 {
     color: $white;
-    font-family: $main-font;
+    font-family:'Oxygen', sans-serif;
+    font-weight: bolder;
 }
 
 p {
     font-weight: bold;
+    font-family:'Open Sans', sans-serif;
+    font-size: 1.2em;
+    color: $white;
 }
 
 .svg-con {
@@ -20,12 +24,20 @@ p {
 //Header
 header {
     background-color: $white;
+    padding: 1em;
 }
 
-header p {
+header h1 {
     color: $black; 
-    font-size: 1.2em;
-    margin-bottom: 0;
+    font-size: 2em;
+    margin-top: 1.2em;
+    margin-bottom: 15px;
+}
+
+header h2 {
+    color: $black;
+    font-size: 1.5em;
+    padding-bottom: 2em;
 }
 
 hr {
@@ -45,17 +57,39 @@ hr {
 #section1 {
     margin: 1em;
 }
+
 #countdown {
     font-size: 11em;
     color: $white;
 }
+
+@media (min-width: 700px) { 
+    #countdown {
+        margin-left: 0.5em;
+    }
+ }
+
+ @media (min-width: 992px) { 
+    #countdown {
+        margin-left: 0.5em;
+    }
+ }
 
 //Rankin
 
 #rankinInfo {
     border: 2px solid $white;
     height: 100%;
+    background-color: $red;
+    padding: 1em;
 }
+
+
+@media (min-width: 700px) { 
+    #rankinInfo {
+        margin-top: 4em;
+    }
+ }
 
 #rankin:hover circle {
     cursor: pointer;
@@ -66,15 +100,28 @@ hr {
     margin: 1em;
 }
 
-//Number stats
+#section2 p {
+    padding-bottom: 10px;
+}
+
+//Homicide stats
 #section3 {
     margin: 1em;
 }
 
-//Map
+#section3 h2 { 
+    color: $white;
+}
+
+//Section 4
 #section4 {
     margin: 1em;
 }
+
+#section4 h2 {
+    color: $white;
+}
+
 //Map CSS
 #BC:hover path {
     cursor: pointer;
@@ -143,16 +190,45 @@ hr {
 
 #mmiwInfo {
     margin-top: 2em;
+    padding: 1em;
     border: 2px solid $white;
     height: 100%;
+    background-color: $red;
+    margin-bottom: 2em;
 }
 
 #mmiwInfo h4 {
     font-size: 1.5em;
+    color: $white;
 }
 
+//Section 5 + Footer
+#section5, footer {
+    padding: 1em;
+    background-color: $white;
+}
 
-//Footer 
-footer {
-    margin: 1em;
+#section5 h1, h2, h3, h4 {
+    color: $black;
+    font-family:'Oxygen', sans-serif;
+}
+
+#section5 h2 {
+    font-weight: bolder;
+}
+
+#section5 p {
+    font-weight: bold;
+    font-family:'Open Sans', sans-serif;
+    font-size: 1.2em;
+    color: $black;
+}
+
+.data-res {
+    cursor: pointer;
+}
+
+footer p {
+    color: $black;
+    font-size: 0.5em;
 }
