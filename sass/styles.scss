@@ -5,13 +5,13 @@ body {
 }
 h1, h2, h3, h4 {
     color: $white;
-    font-family:'Oxygen', sans-serif;
+    font-family: $main-font;
     font-weight: bolder;
 }
 
 p {
     font-weight: bold;
-    font-family:'Open Sans', sans-serif;
+    font-family: $second-font;
     font-size: 1.2em;
     color: $white;
 }
@@ -210,7 +210,6 @@ hr {
 
 #section5 h1, h2, h3, h4 {
     color: $black;
-    font-family:'Oxygen', sans-serif;
 }
 
 #section5 h2 {
@@ -219,7 +218,6 @@ hr {
 
 #section5 p {
     font-weight: bold;
-    font-family:'Open Sans', sans-serif;
     font-size: 1.2em;
     color: $black;
 }
